@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const counterIte = document.getElementsByClassName('count');
-
+    console.log("LOADED");
     const observerOptions = {
         root: null,
         rootMargin: '0px',
