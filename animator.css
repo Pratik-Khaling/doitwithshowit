@@ -1,98 +1,41 @@
-.animateit {
-  opacity: 0;
-  position: relative;
-}
-
-/* Low intensity fade up */
-.fade-up {
-  animation: lifadeUp 0.5s ease-out, fadeIn 1s ease-out;
-}
-
-/* Low intensity fade down */
-.fade-down {
-  animation: lifadeDown 0.5s ease-out, fadeIn 1s ease-out;
-}
-
-/* Low intensity fade left */
-.fade-left {
-  animation: lifadeLeft 0.5s ease-out, fadeIn 1s ease-out;
-}
-
-/* Low intensity fade right */
-.fade-right {
-  animation: lifadeRight 0.5s ease-out, fadeIn 1s ease-out;
-}
-
-/* Duration classes */
-.duration-0_5s {
-  animation-duration: 0.5s;
-}
-
-.duration-1s {
-  animation-duration: 1s;
-}
-
-.duration-2s {
-  animation-duration: 2s;
-}
-
-@keyframes lifadeUp {
-  from {
+@keyframes fadeSlideFromTop {
+  0% {
     opacity: 0;
-    top: 20px;
+    transform: translateY(-4%);
   }
-  to {
+  100% {
     opacity: 1;
-    top: 0;
+    transform: translateY(0);
   }
 }
 
-@keyframes lifadeDown {
-  from {
+@keyframes fadeSlideFromBottom {
+  0% {
     opacity: 0;
-    top: -20px;
+    transform: translateY(4%);
   }
-  to {
+  100% {
     opacity: 1;
-    top: 0;
+    transform: translateY(0);
   }
 }
-
-@keyframes lifadeLeft {
-  from {
+@keyframes fadeSlideFromLeft {
+  0% {
     opacity: 0;
-    left: 20px;
+    transform: translateX(-4%);
   }
-  to {
+  100% {
     opacity: 1;
-    left: 0;
+    transform: translateX(0);
   }
 }
-
-@keyframes lifadeRight {
-  from {
+@keyframes fadeSlideFromRight {
+  0% {
     opacity: 0;
-    left: -20px;
+    transform: translateX(4%);
   }
-  to {
+  100% {
     opacity: 1;
-    left: 0;
+    transform: translateX(0);
   }
-}
-
-/* Delay classes */
-.delay-0_25s {
-  animation-delay: 0.25s;
-}
-
-.delay-0_5s {
-  animation-delay: 0.5s;
-}
-
-.delay-1s {
-  animation-delay: 1s;
-}
-
-.delay-2s {
-  animation-delay: 2s;
 }
