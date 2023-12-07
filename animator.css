@@ -1,3 +1,36 @@
+.fade-up {
+  animation: lifadeUp 0.5s ease-out, fadeIn 1s ease-out;
+}
+
+/* Low intensity fade down */
+.fade-down {
+  animation: lifadeDown 0.5s ease-out, fadeIn 1s ease-out;
+}
+
+/* Low intensity fade left */
+.fade-left {
+  animation: lifadeLeft 0.5s ease-out, fadeIn 1s ease-out;
+}
+
+/* Low intensity fade right */
+.fade-right {
+  animation: lifadeRight 0.5s ease-out, fadeIn 1s ease-out;
+}
+
+/* Duration classes */
+.duration-0_5s {
+  animation-duration: 0.5s;
+}
+
+.duration-1s {
+  animation-duration: 1s;
+}
+
+.duration-2s {
+  animation-duration: 2s;
+}
+
+
 @keyframes lifadeUp {
   from {
     opacity: 0;
