@@ -11,54 +11,49 @@ document.addEventListener("DOMContentLoaded", function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
-                let count = 0;
                 const maxCount = parseInt(counter.textContent);
-                let intervalId; // Declare a variable to store the interval ID
+                let count = 0;
 
                 function updateCounter() {
                     counter.textContent = count;
                 }
 
-                function startAnimation(duration) {
-                    intervalId = setInterval(increaseCounter, duration); // Initial interval
-                }
-
-                function stopAnimation() {
-                    clearInterval(intervalId); // Clear the interval when the animation is complete
-                }
-
                 function increaseCounter() {
                     if (count < maxCount) {
-                        count += 1;
-                        updateCounter();
-
-                        if (maxCount < 200) {
-                            // Update the interval based on maxCount / count ratio
-                            if (maxCount / count >= 4) {
-                                clearInterval(intervalId);
-                                startAnimation(50);
-                            } else if (maxCount / count < 4 && maxCount / count >= 3) {
-                                clearInterval(intervalId);
-                                startAnimation(40);
-                            } else if (maxCount / count < 3 && maxCount / count >= 2) {
-                                clearInterval(intervalId);
-                                startAnimation(30);
-                            } else {
-                                clearInterval(intervalId);
-                                startAnimation(20);
-                            }
-                        } else {
-                            clearInterval(intervalId);
-                            startAnimation(20);
+                        
+                        if (maxCount >= 999) {
+                            count += 21;
+                            if (count > maxCount){
+                                count = maxCount;
+                            } // Faster animation for 4-digit numbers
+                        } else if (maxCount >= 99) {
+                            count += 3;
+                            if (count > maxCount){
+                                count = maxCount;
+                            }  // Faster animation for 3-digit numbers
                         }
-                    } else {
-                        stopAnimation(); // Stop the animation when it's complete
+                        else{
+                            count += 1;
+                        }
+                        updateCounter();
                     }
                 }
 
+                let duration = 50; // Default duration
+
+                if (maxCount >= 1000) {
+                    duration = 15; // Faster animation for 4-digit numbers
+                } else if (maxCount >= 100) {
+                    duration = 20; // Faster animation for 3-digit numbers
+                }
+
                 // Start the counter when the element is in the viewport
-                updateCounter();
-                startAnimation(20); // Initial animation with the shortest interval
+                const intervalId = setInterval(increaseCounter, duration);
+
+                // Stop the animation when the counter reaches the maxCount
+                if (count >= maxCount) {
+                    clearInterval(intervalId);
+                }
 
                 // Once the counter starts, we don't need to observe it anymore
                 observer.unobserve(counter);
