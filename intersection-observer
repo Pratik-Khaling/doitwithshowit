@@ -1,3 +1,1 @@
-<script>
 window.animatedClasses=window.animatedClasses||[];const options={root:null,rootMargin:"0px",threshold:0.2},handleIntersect=(e,t)=>{e.forEach(e=>{if(e.isIntersecting){const t=animatedClasses.some(t=>e.target.classList.contains(t));if(t){const t=Array.from(e.target.classList).find(e=>e.startsWith("wait-"));if(t){const n=parseInt(t.split("-")[1]);!isNaN(n)&&(e.target.style.animationDelay=`${n}ms`)}e.target.classList.add("animate"),t.unobserve(e.target)}}})},observer=new IntersectionObserver(handleIntersect,options);document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".observe").forEach(e=>observer.observe(e))});
-</script>
